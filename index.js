@@ -1,0 +1,119 @@
+const loc = document.getElementById("location");
+
+const loginUser = document.querySelector(".login");
+const closeModal = document.querySelector(".close-modal");
+const signUpUser = document.querySelector(".signup");
+const closeSignup = document.querySelector(".close-signup");
+
+const loginLink = document.querySelector(".login-link");
+const signupLink = document.querySelector(".signup-link");
+
+const createAccnt = document.querySelector(".btn-create-accnt");
+const sendPswrd = document.querySelector(".send-password");
+
+const loginAlert = document.querySelector(".login-alert");
+const signupAlert = document.querySelector(".signup-alert");
+
+const locDropDown = document.querySelector(".dropdown-icon");
+
+const dropDownDiv = document.querySelector(".dropdown-div");
+
+document.getElementById("selected-location").innerText = loc.value;
+
+function locationsDisplay() {
+  event.preventDefault();
+  dropDownDiv.innerHTML = "";
+  dropDownDiv.style.display = "block";
+  let info = "";
+  for (let i = 0; i < loc.length; i++) {
+    let city = loc[i].innerText;
+    info = `<p><a class='drop-down-location'>${city}</a></p>`;
+    dropDownDiv.innerHTML += info;
+  }
+  const dropDownDivLocation = document.querySelectorAll(".drop-down-location");
+  dropDownDivLocation.forEach((location) => {
+    location.addEventListener("click", () => {
+      document.getElementById("selected-location").innerText =
+        location.innerText;
+      loc.value = location.innerText;
+      dropDownDiv.style.display = "none";
+    });
+  });
+}
+
+loc.addEventListener("mousedown", (event) => {
+  event.preventDefault();
+  locationsDisplay();
+});
+
+locDropDown.addEventListener("click", locationsDisplay);
+
+function openLogin() {
+  document.querySelector(".login-modal-class").style.display = "block";
+  document.querySelector(".signup-modal-class").style.display = "none";
+}
+
+loginUser.addEventListener("click", openLogin);
+loginLink.addEventListener("click", openLogin);
+
+function openSignUp() {
+  document.querySelector(".signup-modal-class").style.display = "block";
+  document.querySelector(".login-modal-class").style.display = "none";
+}
+
+signUpUser.addEventListener("click", openSignUp);
+signupLink.addEventListener("click", openSignUp);
+
+function closeModalGroup() {
+  document.querySelector(".signup-modal-class").style.display = "none";
+  document.querySelector(".login-modal-class").style.display = "none";
+}
+
+closeModal.addEventListener("click", closeModalGroup);
+closeSignup.addEventListener("click", closeModalGroup);
+
+createAccnt.addEventListener("click", (event) => {
+  event.preventDefault();
+  const name = document.querySelector("#fullname").value;
+  const email = document.querySelector("#email").value;
+  const termsChecked = document.querySelector("#terms").checked;
+  signupAlert.style.display = "block";
+
+  if (name && email && termsChecked) {
+    let registeredUser = users.filter(
+      (data) => data.name === name && data.email === email
+    );
+    console.log(registeredUser);
+    if (registeredUser.length > 0) {
+      signupAlert.innerHTML = `${name} is already registerd with us,Kindly proceed to Login`;
+    } else {
+      users.push({ name, email });
+      console.log(users);
+      signupAlert.innerHTML = `User details Created for ${name}`;
+    }
+  } else {
+    signupAlert.innerHTML = "kindly enter all the related details";
+  }
+  document.querySelector("#fullname").value = "";
+  document.querySelector("#email").value = "";
+  document.querySelector("#terms").checked = "";
+});
+
+sendPswrd.addEventListener("click", (event) => {
+  event.preventDefault();
+  const mobile = document.querySelector("#mobile").value;
+  loginAlert.style.display = "block";
+  if (mobile) {
+    let registeredUser = users.filter((data) => data.mobile === mobile);
+    if (registeredUser.length > 0) {
+      loginAlert.innerHTML = `Password sent succesfully to ${registeredUser[0].name}`;
+    } else {
+      loginAlert.innerHTML = `This user is not registered with us ,Kindly proceed to signup`;
+    }
+  } else {
+    loginAlert.innerHTML =
+      "Kindly provide correct Phone number to verify user data";
+  }
+
+  document.querySelector("#mobile").value = "";
+});

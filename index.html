@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Zomato</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="top-nav">
+        <div class="get-app">
+          <i class="fa fa-mobile"></i>
+          <a href="#">Get the App</a>
+        </div>
+        <div class="user-capture">
+          <a href="#" class="login">Login</a>
+          <a href="#" class="signup">Signup</a>
+        </div>
+      </nav>
+      <h1 class="zomato">zomato</h1>
+      <h2 class="title-line">
+        Discover the best food and drinks in
+        <span id="selected-location"></span>
+      </h2>
+      <div class="search-container">
+        <span class="location-icon">
+          <i class="fa fa-map-marker fa-2x"></i>
+        </span>
+        <select name="location" id="location">
+          <option value="Bangalore" selected="selected">Bangalore</option>
+          <option value="New Delhi">New Delhi</option>
+          <option value="Mumbai">Mumbai</option>
+          <option value="Kolkata">Kolkata</option>
+        </select>
+        <span class="dropdown-icon">
+          <i class="fa fa-sort-desc fa-lg"></i
+        ></span>
+        <div class="border-before-search"></div>
+        <input
+          type="text"
+          name="search-location"
+          class="search-location"
+          placeholder="Search for a restaurant,cusine or dish"
+        />
+        <span class="search-icon"> <i class="fa fa-search fa-lg"></i></span>
+      </div>
+      <div class="dropdown-div"></div>
+    </header>
+    <section class="login-modal-class">
+      <div class="login-modal">
+        <div class="login-modal-head">
+          <h3>Login</h3>
+          <i class="fa fa-times close-modal"></i>
+        </div>
+        <div class="mobile-number">
+          <input type="text" class="country-code" value="+91" />
+          <div class="border-before-search"></div>
+          <input type="text" name="mobile" id="mobile" placeholder="Phone" />
+        </div>
+        <button class="modal-btn send-password">Send One Time Password</button>
+        <p class="login-alert"></p>
+        <h4>or</h4>
+        <button class="modal-btn email">
+          <i class="fa fa-envelope fa-16px email-icon"></i>Continue with Email
+        </button>
+        <button class="modal-btn email">
+          <i class="fa fa-google fa-16px email-icon"></i>Continue with Google
+        </button>
+        <div class="separator"></div>
+        <p class="new-user">
+          New to Zomato?
+          <a href="#" class="create-account signup-link">Create Account</a>
+        </p>
+      </div>
+    </section>
+    <section class="signup-modal-class">
+      <div class="signup-modal">
+        <div class="signup-modal-head">
+          <h3>Signup</h3>
+          <i class="fa fa-times close-modal close-signup"></i>
+        </div>
+        <form action="submit" class="signup-form">
+          <input
+            type="text"
+            placeholder="Full name"
+            id="fullname"
+            required
+          /><br />
+          <input type="text" placeholder="Email" id="email" required /><br />
+          <div class="terms">
+            <input type="checkbox" name="" id="terms" />
+            <label for="terms"
+              >I agree to Zomato's
+              <span class="term-info">Terms of Service, Privacy Policy</span>
+              and <span class="term-info">Content Policies</span></label
+            >
+          </div>
+        </form>
+        <button class="modal-btn email btn-create-accnt">Create Account</button>
+        <p class="signup-alert"></p>
+        <h4>or</h4>
+        <button class="modal-btn email">
+          <i class="fa fa-google fa-16px email-icon"></i>Continue with Google
+        </button>
+        <div class="separator"></div>
+        <p class="new-user">
+          Already have an account ?
+          <a href="#" class="create-account login-link">Login</a>
+        </p>
+      </div>
+    </section>
+
+    <script src="index.js"></script>
+    <script src="data.js"></script>
+  </body>
+</html>

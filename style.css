@@ -1,0 +1,325 @@
+body {
+  margin: 0;
+  box-sizing: border-box;
+  color: white;
+  font-family: Helvetica, sans-serif;
+}
+
+header {
+  background-image: url("images/zomato-main.jpeg");
+  background-size: cover;
+  background-position: center;
+  height: 350px;
+  padding: 1.5em 4.5em;
+  text-align: center;
+}
+
+.zomato {
+  font-family: Metropolis, sans-serif;
+  font-size: 5.5em;
+  font-style: italic;
+  margin: 0.5em;
+  margin-bottom: 0;
+  letter-spacing: 1px;
+}
+
+.top-nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bolder;
+}
+
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.get-app {
+  font-size: 0.8em;
+  letter-spacing: 1px;
+}
+
+.user-capture {
+  display: flex;
+  flex-direction: row;
+  width: 15%;
+  justify-content: space-around;
+  font-weight: 100;
+  font-size: 1em;
+  letter-spacing: 0.6px;
+}
+
+.title-line {
+  font-size: 2em;
+  font-weight: 200;
+  margin-top: 0;
+  letter-spacing: 2px;
+}
+
+.location-icon {
+  color: rgb(245, 112, 130);
+}
+
+.search-icon {
+  align-self: center;
+  color: #828282;
+}
+
+.dropdown-icon {
+  color: #828282;
+  padding: 3.5px 10px 1px 5px;
+  cursor: pointer;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  background: white;
+  width: 70%;
+  margin: 0 auto;
+  border-radius: 0.6rem;
+  padding: 12px;
+  font-family: Okra, sans-serif;
+}
+
+#location {
+  border: unset;
+  padding: 2px 10px;
+  width: 25%;
+  appearance: none;
+  letter-spacing: 1px;
+}
+
+.search-location {
+  background-color: white;
+  width: 65%;
+  border: unset;
+  padding-left: 10px;
+  letter-spacing: 0.5px;
+  opacity: 0.7;
+}
+
+.border-before-search {
+  width: 0;
+  height: 1rem;
+  border: 0.05rem solid rgb(207, 207, 207);
+  align-self: center;
+}
+
+#location:focus,
+.search-location:focus {
+  outline: none;
+}
+
+.dropdown-div {
+  display: none;
+  position: relative;
+  background: rgb(255, 255, 255);
+  width: 250px;
+  color: black;
+  left: 14%;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 5px;
+  border: 1px solid rgb(207, 207, 207);
+  text-align: left;
+}
+.dropdown-div > p {
+  margin-left: 10px;
+}
+
+.drop-down-location:focus,
+.drop-down-location:hover {
+  cursor: pointer;
+}
+/* Modals layout */
+
+.login-modal-class,
+.signup-modal-class {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.login-modal,
+.signup-modal {
+  background-color: white;
+  padding: 15px;
+  min-height: 150px;
+  margin: 0 auto;
+  min-width: 20rem;
+  max-width: 25rem;
+  width: max-content;
+  position: relative;
+  top: 20%;
+  border-radius: 10px;
+  color: black;
+}
+
+.login-modal-head,
+.signup-modal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0 5px;
+}
+
+.login-modal-head > h3,
+.signup-modal-head > h3 {
+  margin: 0;
+  margin-bottom: 0.5em;
+  font-weight: 400;
+  font-size: 2em;
+  letter-spacing: 1.2px;
+  color: black;
+}
+
+.close-modal {
+  cursor: pointer;
+}
+
+.mobile-number {
+  display: flex;
+  border: 0.1px solid lightgray;
+  justify-content: space-between;
+  height: 40px;
+  border-radius: 5px;
+  padding: 5px;
+  letter-spacing: 1.2px;
+}
+
+#mobile {
+  width: 85%;
+  border: unset;
+  outline: none;
+  font-size: 1em;
+  letter-spacing: 1.2px;
+}
+
+.country-code {
+  border: unset;
+  width: 10%;
+  outline: none;
+  font-size: 1em;
+}
+
+.modal-btn {
+  margin-top: 15px;
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  padding: px;
+  border: unset;
+  outline: none;
+  cursor: pointer;
+  font-size: 1em;
+  letter-spacing: 1.2px;
+  line-height: 1.2;
+}
+
+.send-password {
+  color: white;
+  background-color: rgb(245, 112, 130);
+}
+
+.email {
+  background: white;
+  color: grey;
+  font-weight: 400;
+  border: 0.1px solid lightgray;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.email-icon {
+  color: rgb(245, 112, 130);
+  padding-right: 10px;
+}
+
+h4 {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.2rem;
+  color: grey;
+  margin: 10px 0;
+}
+
+h4::before,
+h4::after {
+  content: "";
+  display: block;
+  border-top: 0.5px lightgray solid;
+}
+
+.separator {
+  border-bottom: 0.5px lightgray solid;
+  margin: 20px 0;
+}
+
+.new-user {
+  margin: 25px auto 5px 0;
+  letter-spacing: 0.6px;
+  font-weight: lighter;
+}
+
+.create-account {
+  text-decoration: none;
+  color: rgb(245, 112, 130);
+  cursor: pointer;
+}
+
+#fullname,
+#email {
+  width: 93%;
+  padding: 12px 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 0.1px solid lightgray;
+}
+
+.terms {
+  display: flex;
+  font-size: 12px;
+  padding: 5px;
+  padding-left: 0;
+}
+
+.term-info {
+  color: rgb(245, 112, 130);
+}
+
+.btn-create-accnt {
+  background: lightgray;
+  color: white;
+  outline: none;
+  border: unset;
+  opacity: 0.9;
+  margin-bottom: 0;
+}
+
+.btn-create-accnt:hover,
+.btn-create-accnt:focus,
+.email:hover,
+.email:focus,
+.send-password:hover,
+.send-password:focus {
+  transform: scale(1.02);
+}
+
+.login-alert,
+.signup-alert {
+  display: none;
+  margin: 0;
+  margin-top: 0.3em;
+  padding: 0;
+  color: rgb(255, 75, 130);
+  font-size: 0.7em;
+}
