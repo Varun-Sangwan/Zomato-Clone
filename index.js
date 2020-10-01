@@ -10,9 +10,11 @@ const signupLink = document.querySelector(".signup-link");
 
 const createAccnt = document.querySelector(".btn-create-accnt");
 const sendPswrd = document.querySelector(".send-password");
+const continueEmail = document.querySelector(".continue-email");
 
 const loginAlert = document.querySelector(".login-alert");
 const signupAlert = document.querySelector(".signup-alert");
+const emailAlert = document.querySelector(".email-alert");
 
 const locDropDown = document.querySelector(".dropdown-icon");
 
@@ -20,14 +22,19 @@ const dropDownDiv = document.querySelector(".dropdown-div");
 
 document.getElementById("selected-location").innerText = loc.value;
 
+const backToLogin = document.querySelector(".back-to-login");
+const closeEmailModal = document.querySelector(".close-email-modal");
+const sendPasswordEmail = document.querySelector(".send-password-to-email");
+
 function locationsDisplay() {
   event.preventDefault();
+  event.stopPropagation();
   dropDownDiv.innerHTML = "";
   dropDownDiv.style.display = "block";
   let info = "";
   for (let i = 0; i < loc.length; i++) {
     let city = loc[i].innerText;
-    info = `<p><a class='drop-down-location'>${city}</a></p>`;
+    info = `<p class='drop-down-location'><a>${city}</a></p>`;
     dropDownDiv.innerHTML += info;
   }
   const dropDownDivLocation = document.querySelectorAll(".drop-down-location");
@@ -41,22 +48,24 @@ function locationsDisplay() {
   });
 }
 
-loc.addEventListener("mousedown", (event) => {
-  event.preventDefault();
-  locationsDisplay();
-});
+loc.addEventListener("mousedown", locationsDisplay);
+loc.addEventListener("click", locationsDisplay);
 
 locDropDown.addEventListener("click", locationsDisplay);
 
 function openLogin() {
+  event.stopPropagation();
   document.querySelector(".login-modal-class").style.display = "block";
   document.querySelector(".signup-modal-class").style.display = "none";
+  document.querySelector(".send-pswrd-to-email").style.display = "none";
 }
 
 loginUser.addEventListener("click", openLogin);
 loginLink.addEventListener("click", openLogin);
+backToLogin.addEventListener("click", openLogin);
 
 function openSignUp() {
+  event.stopPropagation();
   document.querySelector(".signup-modal-class").style.display = "block";
   document.querySelector(".login-modal-class").style.display = "none";
 }
@@ -67,13 +76,16 @@ signupLink.addEventListener("click", openSignUp);
 function closeModalGroup() {
   document.querySelector(".signup-modal-class").style.display = "none";
   document.querySelector(".login-modal-class").style.display = "none";
+  document.querySelector(".send-pswrd-to-email").style.display = "none";
 }
 
 closeModal.addEventListener("click", closeModalGroup);
 closeSignup.addEventListener("click", closeModalGroup);
+closeEmailModal.addEventListener("click", closeModalGroup);
 
 createAccnt.addEventListener("click", (event) => {
   event.preventDefault();
+  event.stopPropagation();
   const name = document.querySelector("#fullname").value;
   const email = document.querySelector("#email").value;
   const termsChecked = document.querySelector("#terms").checked;
@@ -101,6 +113,7 @@ createAccnt.addEventListener("click", (event) => {
 
 sendPswrd.addEventListener("click", (event) => {
   event.preventDefault();
+  event.stopPropagation();
   const mobile = document.querySelector("#mobile").value;
   loginAlert.style.display = "block";
   if (mobile) {
@@ -116,4 +129,48 @@ sendPswrd.addEventListener("click", (event) => {
   }
 
   document.querySelector("#mobile").value = "";
+});
+
+continueEmail.addEventListener("click", () => {
+  document.querySelector(".login-modal-class").style.display = "none";
+  document.querySelector(".signup-modal-class").style.display = "none";
+  document.querySelector(".send-pswrd-to-email").style.display = "block";
+});
+
+sendPasswordEmail.addEventListener("click", () => {
+  event.preventDefault();
+  event.stopPropagation();
+  const email = document.querySelector("#email-id").value;
+  emailAlert.style.display = "block";
+  if (email) {
+    let registeredUser = users.filter((data) => data.email === email);
+    if (registeredUser.length > 0) {
+      emailAlert.innerHTML = `Password sent succesfully to ${registeredUser[0].email}`;
+    } else {
+      emailAlert.innerHTML = `This user is not registered with us ,Kindly proceed to signup`;
+    }
+  } else {
+    emailAlert.innerHTML = "Kindly provide correct Email send password";
+  }
+
+  document.querySelector("#email-id").value = "";
+});
+
+document.querySelector(".login-modal").addEventListener("click", () => {
+  event.stopPropagation();
+});
+
+document.querySelector(".signup-modal").addEventListener("click", () => {
+  event.stopPropagation();
+});
+
+document.querySelector(".email-modal").addEventListener("click", () => {
+  event.stopPropagation();
+});
+document.addEventListener("click", (event) => {
+  event.preventDefault();
+  dropDownDiv.style.display = "none";
+  document.querySelector(".signup-modal-class").style.display = "none";
+  document.querySelector(".login-modal-class").style.display = "none";
+  document.querySelector(".send-pswrd-to-email").style.display = "none";
 });

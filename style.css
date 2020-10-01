@@ -126,6 +126,7 @@ header {
 }
 .dropdown-div > p {
   margin-left: 10px;
+  cursor: pointer;
 }
 
 .drop-down-location:focus,
@@ -135,7 +136,8 @@ header {
 /* Modals layout */
 
 .login-modal-class,
-.signup-modal-class {
+.signup-modal-class,
+.send-pswrd-to-email {
   display: none;
   width: 100%;
   height: 100%;
@@ -148,7 +150,8 @@ header {
 }
 
 .login-modal,
-.signup-modal {
+.signup-modal,
+.email-modal {
   background-color: white;
   padding: 15px;
   min-height: 150px;
@@ -163,7 +166,8 @@ header {
 }
 
 .login-modal-head,
-.signup-modal-head {
+.signup-modal-head,
+.email-modal-head {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -171,13 +175,26 @@ header {
 }
 
 .login-modal-head > h3,
-.signup-modal-head > h3 {
+.signup-modal-head > h3,
+.email-modal-head > h3 {
   margin: 0;
   margin-bottom: 0.5em;
   font-weight: 400;
   font-size: 2em;
   letter-spacing: 1.2px;
   color: black;
+}
+
+.email-modal-head {
+  align-items: center;
+}
+
+.paper-plane {
+  color: orange;
+  position: relative;
+  top: 20px;
+  bottom: 20px;
+  left: 45%;
 }
 
 .close-modal {
@@ -223,9 +240,14 @@ header {
   line-height: 1.2;
 }
 
-.send-password {
+.send-password,
+.send-password-to-email {
   color: white;
   background-color: rgb(245, 112, 130);
+}
+
+.send-password-to-email {
+  margin-bottom: 4px;
 }
 
 .email {
@@ -277,12 +299,17 @@ h4::after {
 }
 
 #fullname,
-#email {
+#email,
+#email-id {
   width: 93%;
   padding: 12px 10px;
   margin: 10px 0;
   border-radius: 5px;
   border: 0.1px solid lightgray;
+}
+
+#email-id {
+  margin-top: 65px;
 }
 
 .terms {
@@ -310,12 +337,15 @@ h4::after {
 .email:hover,
 .email:focus,
 .send-password:hover,
-.send-password:focus {
+.send-password:focus,
+.send-password-to-email:focus,
+.send-password-to-email:hover {
   transform: scale(1.02);
 }
 
 .login-alert,
-.signup-alert {
+.signup-alert,
+.email-alert {
   display: none;
   margin: 0;
   margin-top: 0.3em;
