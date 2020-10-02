@@ -6,7 +6,7 @@ body {
 }
 
 header {
-  background-image: url("images/zomato-main.jpeg");
+  background-image: url("./images/zomato-main.jpeg");
   background-size: cover;
   background-position: center;
   height: 350px;
@@ -47,6 +47,10 @@ header {
   font-weight: 100;
   font-size: 1em;
   letter-spacing: 0.6px;
+}
+
+.user-logged-in {
+  display: none;
 }
 
 .title-line {
@@ -137,7 +141,8 @@ header {
 
 .login-modal-class,
 .signup-modal-class,
-.send-pswrd-to-email {
+.send-pswrd-to-email,
+.otpverification {
   display: none;
   width: 100%;
   height: 100%;
@@ -151,7 +156,8 @@ header {
 
 .login-modal,
 .signup-modal,
-.email-modal {
+.email-modal,
+.otp-modal {
   background-color: white;
   padding: 15px;
   min-height: 150px;
@@ -167,7 +173,8 @@ header {
 
 .login-modal-head,
 .signup-modal-head,
-.email-modal-head {
+.email-modal-head,
+.otp-modal-head {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -176,7 +183,8 @@ header {
 
 .login-modal-head > h3,
 .signup-modal-head > h3,
-.email-modal-head > h3 {
+.email-modal-head > h3,
+.otp-modal-head > h3 {
   margin: 0;
   margin-bottom: 0.5em;
   font-weight: 400;
@@ -185,8 +193,8 @@ header {
   color: black;
 }
 
-.email-modal-head {
-  align-items: center;
+.otp-modal-head {
+  margin-bottom: 1em;
 }
 
 .paper-plane {
@@ -332,7 +340,7 @@ h4::after {
   margin-bottom: 0;
 }
 
-.btn-create-accnt:hover,
+/* .btn-create-accnt:hover,
 .btn-create-accnt:focus,
 .email:hover,
 .email:focus,
@@ -341,6 +349,26 @@ h4::after {
 .send-password-to-email:focus,
 .send-password-to-email:hover {
   transform: scale(1.02);
+} */
+
+.otp {
+  display: flex;
+  justify-content: space-around;
+}
+
+#otp {
+  height: 25px;
+  width: 35px;
+  text-align: center;
+  outline: none;
+  border: 0.1px solid rgb(207, 207, 207);
+  border-radius: 7px;
+}
+
+.otp-counter {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bolder;
 }
 
 .login-alert,

@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Zomato</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -15,9 +15,15 @@
           <i class="fa fa-mobile"></i>
           <a href="#">Get the App</a>
         </div>
-        <div class="user-capture">
+        <div class="user-capture login-div">
           <a href="#" class="login">Login</a>
           <a href="#" class="signup">Signup</a>
+        </div>
+        <div class="user-capture user-logged-in">
+          <a href="#" class="login" id="username"
+            ><span id="username"></span
+          ></a>
+          <a href="#" class="signup logout">Logout</a>
         </div>
       </nav>
       <h1 class="zomato">zomato</h1>
@@ -91,6 +97,27 @@
         <p class="email-alert"></p>
       </div>
     </section>
+    <section class="otpverification">
+      <div class="otp-modal">
+        <div class="otp-modal-head">
+          <h3>OTPVerification</h3>
+          <i class="fa fa-times close-modal close-otp"></i>
+        </div>
+        <div class="otp">
+          <input type="text" name="" id="otp" maxlength="1" />
+          <input type="text" name="" id="otp" maxlength="1" />
+          <input type="text" name="" id="otp" maxlength="1" />
+          <input type="text" name="" id="otp" maxlength="1" />
+          <input type="text" name="" id="otp" maxlength="1" />
+          <input type="text" name="" id="otp" maxlength="1" />
+        </div>
+        <p class="otp-counter">00:<span id="timer">30</span></p>
+        <p class="otp-resend">
+          Not received OTP?
+          <a href="#" class="create-account send-otp">Resend Now</a>
+        </p>
+      </div>
+    </section>
     <section class="signup-modal-class">
       <div class="signup-modal">
         <div class="signup-modal-head">
@@ -128,7 +155,7 @@
       </div>
     </section>
 
-    <script src="index.js"></script>
-    <script src="data.js"></script>
+    <script src="./index.js"></script>
+    <script src="./data.js"></script>
   </body>
 </html>
